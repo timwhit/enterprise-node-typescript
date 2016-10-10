@@ -4,8 +4,8 @@
   "description": "Boilerplate project for a Node.js backend with Typescript support.",
   "main": "src/index.ts",
   "scripts": {
-    "start": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'npm run lint && ts-node src/index.ts'",
-    "prod": "ts-node src/index.ts",
+    "start": "NODE_ENV=development nodemon --debug --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'npm run lint && ts-node src/index.ts'",
+    "prod": "NODE_ENV=production ts-node src/index.ts",
     "lint": "tslint 'src/**/*.ts' -t verbose --force",
     "test": "ts-node node_modules/tape/bin/tape './src/**/*.spec.ts' | tap-spec"
   },

@@ -1,7 +1,7 @@
 const test = require('tape');
-const greet = require('./index.ts');
+import greet from './greet';
 
-test('greeting', function (t) {
+test('greet', (t) => {
     t.plan(3);
 
     t.equal(greet('World'), 'Hello World', `Should return 'Hello World'`);
