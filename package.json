@@ -4,10 +4,10 @@
   "description": "Boilerplate project for a Node.js backend with Typescript support.",
   "main": "src/index.ts",
   "scripts": {
-    "start": "NODE_ENV=development nodemon --exec 'npm run lint && ts-node src/index.ts'",
-    "prod": "NODE_ENV=production ts-node src/index.ts",
-    "lint": "tslint 'src/**/*.ts' -t verbose --force",
-    "test": "ts-node node_modules/tape/bin/tape './src/**/*.spec.ts' | tap-spec"
+    "start": "NODE_ENV=development node_modules/.bin/nodemon --exec 'npm run lint && node_modules/.bin/ts-node src/index.ts'",
+    "prod": "NODE_ENV=production node_modules/.bin/ts-node src/index.ts",
+    "lint": "node_modules/.bin/tslint 'src/**/*.ts' -t verbose --force",
+    "test": "node_modules/.bin/ts-node node_modules/.bin/tape './src/**/*.spec.ts' | tap-spec"
   },
   "author": "Brian Sokol <brian.sokol@slalom.com>",
   "license": "MIT",
