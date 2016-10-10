@@ -1,4 +1,4 @@
-const test = require('tape');
+import * as test from 'tape';
 import greet from './greet';
 
 test('greet', (t) => {
