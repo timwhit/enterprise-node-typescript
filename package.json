@@ -12,8 +12,10 @@
   "author": "Brian Sokol <brian.sokol@slalom.com>",
   "license": "MIT",
   "dependencies": {
+    "@types/express": "^4.0.32",
     "@types/node": "^6.0.45",
-    "@types/tape": "^4.2.28"
+    "@types/tape": "^4.2.28",
+    "express": "^4.14.0"
   },
   "devDependencies": {
     "nodemon": "^1.11.0",
@@ -21,6 +23,8 @@
     "tape": "^4.6.2",
     "ts-node": "^1.4.1",
     "tslint": "^3.15.1",
-    "typescript": "^2.0.3"
+    "typescript": "^2.0.3",
+    "@types/express": "4.0.32",
+    "@types/winston": "0.0.28"
   }
 }

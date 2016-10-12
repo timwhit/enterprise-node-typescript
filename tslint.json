@@ -6,6 +6,13 @@
       true,
       "single"
     ],
-    "no-var-requires": false
+    "no-var-requires": false,
+    "interface-name": [
+      true,
+      "never-prefix"
+    ],
+    "max-line-length": [true, 160],
+    "trailing-comma": [true, {"multiline": "never", "singleline": "never"}]
+
   }
 }
