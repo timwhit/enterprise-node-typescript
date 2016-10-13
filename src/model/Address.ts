@@ -1,9 +1,19 @@
 export class Address {
-    constructor(private streetAddress: string, private city: string, private state: string, private zip: string, private country: string) {
+    constructor(
+        private address1: string,
+        private address2: string,
+        private city: string,
+        private state: string,
+        private zip: string,
+        private country: string) {
     }
 
-    get getStreetAddress(): string {
-        return this.streetAddress;
+    get getaddress1(): string {
+        return this.address1;
+    }
+
+    get getaddress2(): string {
+        return this.address2;
     }
 
     get getCity(): string {

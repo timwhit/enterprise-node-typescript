@@ -1,14 +1,19 @@
+import { injectable, inject } from 'inversify';
 import {Address} from '../model/Address';
+import {AddressRepository} from '../repository/AddressRepository';
+import TYPES from '../types';
+import 'reflect-metadata';
 
 export interface AddressService {
-    getAddresses(): Array<Address>;
+    getAddresses(): Promise<Array<Address>>;
 }
 
+@injectable()
 export class AddressServiceImpl {
-    public getAddresses(): Array<Address> {
-        const address = new Address('123 fake st', 'Springfield', 'IL', '60612', 'USA');
-        return [
-              address
-        ];
+    @inject(TYPES.AddressRepository)
+    private addressRepository: AddressRepository;
+
+    public async getAddresses(): Promise<Array<Address>> {
+        return this.addressRepository.findAll();
     }
 }
