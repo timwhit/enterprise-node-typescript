@@ -15,12 +15,11 @@
   "dependencies": {
     "@types/express": "^4.0.32",
     "@types/inversify": "^2.0.31",
-    "@types/mongoose": "^4.5.38",
     "@types/node": "^6.0.45",
     "@types/tape": "^4.2.28",
     "express": "^4.14.0",
     "inversify": "^2.0.1",
-    "mongoose": "^4.6.3",
+    "iridium": "^7.0.0",
     "reflect-metadata": "^0.1.8",
     "winston": "^2.2.0"
   },

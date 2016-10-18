@@ -3,9 +3,6 @@ import {Logger, LoggerInstance, LoggerOptions, transports} from 'winston';
 import {AddressService} from './service/AddressService';
 import TYPES from './types';
 import kernel from './inversify.config';
-import * as mongoose from 'mongoose';
-
-mongoose.connect('mongodb://localhost/address-book');
 
 const app: express.Application = express();
 
