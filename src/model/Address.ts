@@ -8,11 +8,11 @@ export class Address {
         private country: string) {
     }
 
-    get getaddress1(): string {
+    get getAddress1(): string {
         return this.address1;
     }
 
-    get getaddress2(): string {
+    get getAddress2(): string {
         return this.address2;
     }
 

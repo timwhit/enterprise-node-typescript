@@ -1,7 +1,7 @@
 import {Core, Model, Instance, Collection, Index, Property, ObjectID} from 'iridium';
 
 export interface AddressDocument {
-    _id?: string;
+    id?: string;
     address1: string;
     address2?: string;
     city: string;
