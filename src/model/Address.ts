@@ -1,11 +1,11 @@
 export class Address {
-    constructor(
-        private address1: string,
-        private address2: string,
-        private city: string,
-        private state: string,
-        private zip: string,
-        private country: string) {
+    constructor(private address1: string,
+                private address2: string,
+                private city: string,
+                private state: string,
+                private zip: string,
+                private country: string,
+                private id?: string) {
     }
 
     get getAddress1(): string {
@@ -30,5 +30,9 @@ export class Address {
 
     get getCountry(): string {
         return this.country;
+    }
+
+    get getId(): string {
+        return this.id;
     }
 }

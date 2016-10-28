@@ -1,7 +1,8 @@
 import {Core, Model, Instance, Collection, Index, Property, ObjectID} from 'iridium';
+import {Table, Column, PrimaryGeneratedColumn, PrimaryColumn} from 'typeorm';
 
-export interface AddressDocument {
-    id?: string;
+export interface AddressDTO {
+    _id?: string;
     address1: string;
     address2?: string;
     city: string;
@@ -10,11 +11,14 @@ export interface AddressDocument {
     country: string;
 }
 
+/**
+ * Iridium config
+ */
 @Index({name: 1})
 @Collection('addresses')
-export class AddressSchema extends Instance<AddressDocument, AddressSchema> implements AddressDocument {
+export class AddressSchema extends Instance<AddressDTO, AddressSchema> implements AddressDTO {
     @ObjectID
-    public id: string;
+    public _id: string;
     @Property(String, true)
     public address1: string;
     @Property(String, false)
@@ -30,17 +34,30 @@ export class AddressSchema extends Instance<AddressDocument, AddressSchema> impl
 }
 
 class AddressDatabase extends Core {
-    public Addresses = new Model<AddressDocument, AddressSchema>(this, AddressSchema);
+    public Addresses = new Model<AddressDTO, AddressSchema>(this, AddressSchema);
 }
 
 export const database = new AddressDatabase({database: 'test_db'});
 
-database.connect().then(() => database.Addresses.insert({
-    address1: '123 Fake St',
-    city: 'Springfield',
-    state: 'IL',
-    zip: '12345',
-    country: 'USA'
-}))
-    .then(() => database.Addresses.get())
-    .then(() => database.close());
+//database.connect().then(() => database.Addresses.remove()).then(() => database.Addresses.get()).then(() => database.close());
+
+/**
+ * TypeORM Schema Config
+ */
+@Table('address')
+export class AddressDbSchema implements AddressDTO {
+    @PrimaryColumn()
+    public _id?: string;
+    @Column()
+    public address1: string;
+    @Column()
+    public address2?: string;
+    @Column()
+    public city: string;
+    @Column()
+    public state: string;
+    @Column()
+    public zip: string;
+    @Column()
+    public country: string;
+}
