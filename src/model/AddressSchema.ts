@@ -39,6 +39,7 @@ class AddressDatabase extends Core {
 
 export const database = new AddressDatabase({database: 'test_db'});
 
+// delete everything from mongo
 // database.connect().then(() => database.Addresses.remove()).then(() => database.Addresses.get()).then(() => database.close());
 
 /**
