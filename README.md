@@ -21,3 +21,11 @@ Run `yarn` after cloning this repository. The project provides the following scr
   The *tslint.json* file should be configured to your preferred coding style.
 
 - `yarn test` will run the pre-configured **tape** tests, but can be replaced with your preferring testing framework.
+
+## Main Libraries
+
+- [Express](http://expressjs.com/) - web framework
+- [InversifyJS](https://github.com/inversify/InversifyJS) - TypeScript DI/IoC framework
+- [Iridium](https://github.com/SierraSoftworks/Iridium) - TypeScript Mongo ODM
+- [TypeORM](https://github.com/typeorm/typeorm) - TypeScript ORM (uses sqlite as a demo)
+- [winston](https://github.com/winstonjs/winston) - logging framework
