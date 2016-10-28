@@ -13,56 +13,40 @@ const addressService: AddressService = kernel.get<AddressService>(TYPES.AddressS
 
 app.route('/')
     .get(async(req: express.Request, res: express.Response, next: express.NextFunction) => {
-        try {
-            const addresses = await addressService.getAddresses();
-            res.json(addresses);
-        } catch (err) {
-            next(err);
-        }
+        const addresses = await addressService.getAddresses().catch(err => next(err));
+        res.json(addresses);
     })
     .post(async(req: express.Request, res: express.Response, next: express.NextFunction) => {
-        try {
-            const address = new Address(
-                req.body.address1,
-                req.body.address2,
-                req.body.city,
-                req.body.state,
-                req.body.zip,
-                req.body.country
-            );
-            const createdAddress = await addressService.createAddress(address);
-            res.json(createdAddress);
-        } catch (err) {
-            next(err);
-        }
+        const address = new Address(
+            req.body.address1,
+            req.body.address2,
+            req.body.city,
+            req.body.state,
+            req.body.zip,
+            req.body.country
+        );
+        const createdAddress = await addressService.createAddress(address).catch(err => next(err));
+        res.json(createdAddress);
     });
 
 app.route('/:id')
     .get(async(req: express.Request, res: express.Response, next: express.NextFunction) => {
-        try {
-            const addresses = await addressService.getAddress(<string> req.params.id);
-            res.json(addresses);
-        } catch (err) {
-            next(err);
-        }
+        const addresses = await addressService.getAddress(<string> req.params.id).catch(err => next(err));
+        res.json(addresses);
     })
     .put(async(req: express.Request, res: express.Response, next: express.NextFunction) => {
-        try {
-            const address = new Address(
-                req.body.address1,
-                req.body.address2,
-                req.body.city,
-                req.body.state,
-                req.body.zip,
-                req.body.country,
-                req.body.id
-            );
+        const address = new Address(
+            req.body.address1,
+            req.body.address2,
+            req.body.city,
+            req.body.state,
+            req.body.zip,
+            req.body.country,
+            req.body.id
+        );
 
-            const updatedAddress = await addressService.updateAddress(address);
-            res.json(updatedAddress);
-        } catch (err) {
-            next(err);
-        }
+        const updatedAddress = await addressService.updateAddress(address).catch(err => next(err));
+        res.json(updatedAddress);
     });
 
 app.use(function (err: Error, req: express.Request, res: express.Response, next: express.NextFunction) {
