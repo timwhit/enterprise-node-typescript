@@ -5,7 +5,6 @@ import TYPES from './types';
 import kernel from './inversify.config';
 import {logger} from './util/Logger';
 import {Address} from './model/Address';
-import {Exception} from "winston";
 
 const app: express.Application = express();
 app.use(bodyParser.json());

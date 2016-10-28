@@ -39,7 +39,7 @@ class AddressDatabase extends Core {
 
 export const database = new AddressDatabase({database: 'test_db'});
 
-//database.connect().then(() => database.Addresses.remove()).then(() => database.Addresses.get()).then(() => database.close());
+// database.connect().then(() => database.Addresses.remove()).then(() => database.Addresses.get()).then(() => database.close());
 
 /**
  * TypeORM Schema Config
