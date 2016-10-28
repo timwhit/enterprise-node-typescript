@@ -1,2 +1,4 @@
 .idea/
 node_modules/
+tmp/sqlitedb.db
+.DS_Store
