@@ -60,7 +60,7 @@ export class AddressRepositoryImplDb implements AddressRepository {
     constructor() {
         this.connect().then(async connection => {
             this.addressRepository = connection.getRepository(AddressDbSchema);
-        });
+        }).catch(err => logger.error('Cannot connect to database', err));
     }
 
     public async findAll(): Promise<Array<AddressDTO>> {
