@@ -16,7 +16,7 @@ export interface AddressDTO {
  */
 @Index({name: 1})
 @Collection('addresses')
-export class AddressSchema extends Instance<AddressDTO, AddressSchema> implements AddressDTO {
+export class AddressMongoSchema extends Instance<AddressDTO, AddressMongoSchema> implements AddressDTO {
     @ObjectID
     // tslint:disable-next-line:variable-name
     public _id: string;
@@ -35,10 +35,10 @@ export class AddressSchema extends Instance<AddressDTO, AddressSchema> implement
 }
 
 class AddressDatabase extends Core {
-    public Addresses = new Model<AddressDTO, AddressSchema>(this, AddressSchema);
+    public Addresses = new Model<AddressDTO, AddressMongoSchema>(this, AddressMongoSchema);
 }
 
-export const database = new AddressDatabase({database: 'test_db'});
+export const mongoDatabase = new AddressDatabase({database: 'test_db'});
 
 // delete everything from mongo
 // database.connect().then(() => database.Addresses.remove()).then(() => database.Addresses.get()).then(() => database.close());

@@ -1,5 +1,5 @@
 import {injectable} from 'inversify';
-import {database, AddressDTO, AddressSchema, AddressDbSchema} from '../model/AddressSchema';
+import {mongoDatabase, AddressDTO, AddressMongoSchema, AddressDbSchema} from '../model/AddressSchema';
 import {logger} from '../util/Logger';
 import {createConnection, Connection, Repository, ConnectionOptions} from 'typeorm';
 
@@ -13,16 +13,16 @@ export interface AddressRepository {
 @injectable()
 export class AddressRepositoryImplMongo implements AddressRepository {
     public async findAll(): Promise<Array<AddressDTO>> {
-        const addressDTOs = await database.connect().then(() => database.Addresses.find());
+        const addressDTOs = await mongoDatabase.connect().then(() => mongoDatabase.Addresses.find());
         return addressDTOs.toArray();
     }
 
     public async create(addressDTO: AddressDTO): Promise<AddressDTO> {
-        return await database.connect().then(() => database.Addresses.create(addressDTO));
+        return await mongoDatabase.connect().then(() => mongoDatabase.Addresses.create(addressDTO));
     }
 
     public async update(addressDTO: AddressDTO): Promise<AddressDTO> {
-        const dto: AddressSchema = await database.connect().then(() => database.Addresses.findOne(addressDTO._id));
+        const dto: AddressMongoSchema = await mongoDatabase.connect().then(() => mongoDatabase.Addresses.findOne(addressDTO._id));
 
         dto.address1 = addressDTO.address1;
         if (addressDTO.address2) {
@@ -49,7 +49,7 @@ export class AddressRepositoryImplMongo implements AddressRepository {
     }
 
     public async find(id: string): Promise<AddressDTO> {
-        return await database.connect().then(() => database.Addresses.findOne(id));
+        return await mongoDatabase.connect().then(() => mongoDatabase.Addresses.findOne(id));
     }
 }
 
