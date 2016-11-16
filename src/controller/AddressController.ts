@@ -7,8 +7,11 @@ import {RegistrableController} from './RegisterableController';
 
 @injectable()
 export class AddressController implements RegistrableController {
-    @inject(TYPES.AddressService)
     private addressService: AddressService;
+
+    constructor(@inject(TYPES.AddressService) addressService: AddressService) {
+        this.addressService = addressService;
+    }
 
     public register(app: express.Application): void {
         app.route('/')
