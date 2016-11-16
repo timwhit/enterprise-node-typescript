@@ -80,7 +80,7 @@ export class AddressRepositoryImplDb implements AddressRepository {
     }
 
     private connect(): Promise<Connection> {
-        return createConnection(<ConnectionOptions>{
+        return createConnection(<ConnectionOptions> {
             driver: {
                 type: 'sqlite',
                 storage: 'tmp/sqlitedb.db'

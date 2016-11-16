@@ -1,5 +1,5 @@
 import {Core, Model, Instance, Collection, Index, Property, ObjectID} from 'iridium';
-import {Table, Column, PrimaryGeneratedColumn, PrimaryColumn} from 'typeorm';
+import {Table, Column, PrimaryColumn} from 'typeorm';
 
 export interface AddressDTO {
     _id?: string;
@@ -18,6 +18,7 @@ export interface AddressDTO {
 @Collection('addresses')
 export class AddressSchema extends Instance<AddressDTO, AddressSchema> implements AddressDTO {
     @ObjectID
+    // tslint:disable-next-line:variable-name
     public _id: string;
     @Property(String, true)
     public address1: string;
@@ -48,6 +49,7 @@ export const database = new AddressDatabase({database: 'test_db'});
 @Table('address')
 export class AddressDbSchema implements AddressDTO {
     @PrimaryColumn()
+    // tslint:disable-next-line:variable-name
     public _id?: string;
     @Column()
     public address1: string;

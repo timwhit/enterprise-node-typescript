@@ -58,13 +58,13 @@ export class AddressServiceImpl implements AddressService {
     }
 
     public async getAddress(id: string): Promise<Address> {
-        let address = await this.addressRepositoryMongo.find(id).then((address) => {
-            return this.transformAddressDTO(address);
+        let address = await this.addressRepositoryMongo.find(id).then((a) => {
+            return this.transformAddressDTO(a);
         });
 
         if (!address) {
-            address = await this.addressRepositoryDb.find(id).then((address) => {
-                return this.transformAddressDTO(address);
+            address = await this.addressRepositoryDb.find(id).then((a) => {
+                return this.transformAddressDTO(a);
             });
         }
 
