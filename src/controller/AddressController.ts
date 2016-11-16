@@ -6,7 +6,7 @@ import {Address} from '../model/Address';
 import {RegistrableController} from './RegisterableController';
 
 @injectable()
-export class AddressControllerImpl implements RegistrableController {
+export class AddressController implements RegistrableController {
     @inject(TYPES.AddressService)
     private addressService: AddressService;
 
