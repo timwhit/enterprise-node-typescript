@@ -1,7 +1,7 @@
 import {injectable} from 'inversify';
 import {database, AddressDTO, AddressSchema, AddressDbSchema} from '../model/AddressSchema';
 import {logger} from '../util/Logger';
-import {createConnection, Connection, Repository} from 'typeorm';
+import {createConnection, Connection, Repository, ConnectionOptions} from 'typeorm';
 
 export interface AddressRepository {
     findAll(): Promise<Array<AddressDTO>>;
@@ -80,7 +80,7 @@ export class AddressRepositoryImplDb implements AddressRepository {
     }
 
     private connect(): Promise<Connection> {
-        return createConnection({
+        return createConnection(<ConnectionOptions>{
             driver: {
                 type: 'sqlite',
                 storage: 'tmp/sqlitedb.db'
