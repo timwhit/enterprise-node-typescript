@@ -25,7 +25,7 @@
     "lodash": "^4.16.4",
     "reflect-metadata": "^0.1.8",
     "sqlite3": "^3.1.7",
-    "typeorm": "^0.0.2-alpha.69",
+    "typeorm": "^0.1.15",
     "winston": "^2.2.0"
   },
   "devDependencies": {
